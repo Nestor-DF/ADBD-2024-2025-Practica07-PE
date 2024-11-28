@@ -1,16 +1,12 @@
 # Usa la imagen oficial de PostgreSQL
 FROM postgres:latest
 
-# Configura las variables de entorno necesarias para PostgreSQL
+# Establece variables de entorno necesarias
 ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=12ab12ab
-ENV POSTGRES_DB=AlquilerDVD
+ENV POSTGRES_PASSWORD=postgres
+ENV POSTGRES_DB=postgres_air
 
-RUN mkdir -p /docker-entrypoint-initdb.d
+# Copia el archivo SQL
+COPY postgres_air.sql /miauu/
 
-COPY ./initdb.sql /docker-entrypoint-initdb.d/
-COPY ./script.sql /docker-entrypoint-initdb.d/
-COPY ./AlquilerPractica.tar /docker-entrypoint-initdb.d/
-
-# Exponemos el puerto de PostgreSQL
-EXPOSE 5432
+# Los scripts en /docker-entrypoint-initdb.d/ se ejecutan al iniciar la base de datos
