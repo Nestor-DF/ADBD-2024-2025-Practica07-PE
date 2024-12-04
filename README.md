@@ -26,11 +26,7 @@ La contraseña será `postgres` (o la que definiste en el Dockerfile).
 \i postgres_air.sql
 ```
 
-La contraseña será `postgres` (o la que definiste en el Dockerfile).
-
 ---
-
-El mensaje indica que el script se ejecutó correctamente, pero no se pueden encontrar relaciones (tablas). Esto puede deberse a que las tablas se crearon en un esquema diferente al que estás consultando. Por defecto, `psql` busca tablas en el esquema `public`, pero el script puede haberlas creado en el esquema `postgres_air`.
 
 ### 1. **Verificar los esquemas disponibles**
 
